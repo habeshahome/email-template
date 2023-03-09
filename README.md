@@ -1,2 +1,2 @@
-# HTML Email - old school
+# HTML Email - OG
 Static Html Email Template
