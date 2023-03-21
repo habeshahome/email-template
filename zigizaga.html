@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 100px;
+        }
+        .zigzag {
+            position: relative;
+            width: 26cm; /* should be a multiple of background-size in ::after style */
+            min-height: 500px;
+            background-color: #909090;
+            overflow: auto;
+            resize: both;
+        }
+        .zigzag::after {
+            content: "";
+            position: absolute;
+            height: 2cm; /* match thiss iwth background-size for perfection, height: 2x gradient brakepoint */
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            background: 
+                linear-gradient(-45deg, #ffff00 1cm, transparent 1cm),
+                linear-gradient(45deg, #ffff00 1cm, transparent 1cm);
+            background-blend-mode: overlay;
+            background-size: 2cm;
+            rotate: 180deg;
+        }
+        .headline {
+            width: 200px;
+            border: 1px solid #3a2a04;
+            border-radius: 12px;
+            padding: 6px;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            pointer-events: none;
+        }
+         .stone {
+            height: 400px;
+            width: 400px;
+            border-radius: 25% 50%;
+            background-image: linear-gradient(silver, lightblue);
+            position: relative;
+            overflow: auto;
+            resize: both;
+            padding: 100px 50px;
+            border: 1px solid silver;
+        }
+        .visual {
+            height: 400px;
+            width: 400px;
+            border-top-left-radius: 75% 25%;
+            border-top-right-radius: 22% 50%;
+            background-image: linear-gradient(silver, lightblue);
+            position: relative;
+            overflow: auto;
+            resize: both;
+            padding: 100px 50px;
+            border: 1px solid silver;
+        }
+        .timer {
+            counter-reset: useCount;
+        }
+        div {
+            counter-increment: useCount;
+        }
+        div:before {
+            content: counter(useCount);
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="zigzag"> </div>
+
+    <div class="headline">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore, temporibus!</div>
+    <div class='stone'> 
+        <h2> Big Man </h2>
+    </div>
+
+    <div class='visual'> Visual Style  </div>
+</body>
+</html>
